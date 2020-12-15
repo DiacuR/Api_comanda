@@ -1,0 +1,598 @@
+{
+	"info": {
+		"_postman_id": "6e2f71b8-f0d1-4a1f-a57f-79851b26983c",
+		"name": "LaComandaTP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Agregar Empleado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "usuario",
+							"value": "Diacu",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "iaq@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "pulpo",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "socio",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}registro/staff",
+					"host": [
+						"{{url}}registro"
+					],
+					"path": [
+						"staff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "usuario",
+							"value": "jose",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jose@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "pulpo",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}registro/cliente",
+					"host": [
+						"{{url}}registro"
+					],
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Empleado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "lu@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "pulpo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}login/staff",
+					"host": [
+						"{{url}}login"
+					],
+					"path": [
+						"staff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Cliente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "dani@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "pulpo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}login/cliente",
+					"host": [
+						"{{url}}login"
+					],
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alta Pedido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{tokenEmpleado}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "items[0][0]",
+							"value": "arepa",
+							"description": "Producto",
+							"type": "text"
+						},
+						{
+							"key": "items[0][1]",
+							"value": "2",
+							"description": "Cantidad",
+							"type": "text"
+						},
+						{
+							"key": "items[1][0]",
+							"value": "arepa",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "items[1][1]",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "items[2][0]",
+							"value": "tacos",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "items[2][1]",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "items[3][0]",
+							"value": "tiramisu",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "items[3][1]",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "items[4][0]",
+							"value": "ravioles",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "items[4][1]",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "items[5][0]",
+							"value": "arepa",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "items[5][1]",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}pedido/1",
+					"host": [
+						"{{url}}pedido"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Preparar Pedido",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{tokenEmpleado}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}pedido/preparar/WYJ59",
+					"host": [
+						"{{url}}pedido"
+					],
+					"path": [
+						"preparar",
+						"WYJ59"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Servir Pedido",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{tokenEmpleado}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}pedido/entrega/WYJ59",
+					"host": [
+						"{{url}}pedido"
+					],
+					"path": [
+						"entrega",
+						"WYJ59"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedir Cuenta",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{tokenCliente}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}mesas/pedir_cuenta/XYZ33",
+					"host": [
+						"{{url}}mesas"
+					],
+					"path": [
+						"pedir_cuenta",
+						"XYZ33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver mesas que pidieron cuenta",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{tokenEmpleado}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}mesas/pidieron_cuenta",
+					"host": [
+						"{{url}}mesas"
+					],
+					"path": [
+						"pidieron_cuenta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entregar Cuenta",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "{{tokenEmpleado}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}pedido/entregar_la_cuenta/WYJ59",
+					"host": [
+						"{{url}}pedido"
+					],
+					"path": [
+						"entregar_la_cuenta",
+						"WYJ59"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cobrar Cuenta",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "{{tokenEmpleado}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}pedido/cobrar_la_cuenta/WYJ59",
+					"host": [
+						"{{url}}pedido"
+					],
+					"path": [
+						"cobrar_la_cuenta",
+						"WYJ59"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reseña",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "{{tokenEmpleado}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}pedido/cobrar_la_cuenta/WYJ59",
+					"host": [
+						"{{url}}pedido"
+					],
+					"path": [
+						"cobrar_la_cuenta",
+						"WYJ59"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CerrarMesa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "{{tokenSocio}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}mesas/cerrar_mesa/XYZ33",
+					"host": [
+						"{{url}}mesas"
+					],
+					"path": [
+						"cerrar_mesa",
+						"XYZ33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Pendientes",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/diacu/Pictures/Camera Roll/foto cv.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}pendiente",
+					"host": [
+						"{{url}}pendiente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Todos los Pedidos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}pedido",
+					"host": [
+						"{{url}}pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver tiempo Restante (Pedido)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{tokenCliente}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigoMesa",
+							"value": "LPA56",
+							"type": "text"
+						},
+						{
+							"key": "codigoPedido",
+							"value": "KBE63",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}pedido",
+					"host": [
+						"{{url}}pedido"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
